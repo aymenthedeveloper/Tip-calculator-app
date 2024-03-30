@@ -1,0 +1,186 @@
+$Strong-cyan: hsl(172, 67%, 45%);
+$Very-dark-cyan: hsl(183, 100%, 15%);
+$Dark-grayish-cyan: hsl(186, 14%, 43%);
+$Grayish-cyan: hsl(184, 14%, 56%);
+$Light-grayish-cyan: hsl(185, 41%, 84%);
+$Very-light-grayish-cyan: hsl(189, 41%, 97%);
+$White: hsl(0, 0%, 100%);
+
+.grid-items-center {
+    display: grid;
+    place-items: center;
+}
+
+
+body{
+    margin: 0;
+    font-family: "space mono", sans-serif;
+    background-color: $Light-grayish-cyan;
+}
+main {
+    min-height: 100vh;
+    @extend .grid-items-center;
+}
+.tip_card{
+    background-color: $White;
+    width: 920px;
+    min-height: 480px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: $Very-dark-cyan;
+}
+.tip_input {
+    border-radius: 10px;
+    padding: .875rem 1rem;
+    label{
+        display: block;
+        font-weight: 700;
+        position: relative;
+    }
+    input{
+        display: block;
+        width: 100%;
+        height: 50px;
+        padding: .375rem 1.25rem;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        text-align: right;
+        font-weight: 700;
+        font-size: 1.5rem;
+        background-color: $Very-light-grayish-cyan;
+        border-radius: 5px;
+        &.error{
+            color: red;
+        }
+    }
+    .bill{
+        margin-bottom: .25rem;
+        + input{
+            margin-bottom: 2.5rem;
+        }
+        &::after{
+            content: "$";
+            position: absolute;
+            top: 2.125rem;
+            left: 1rem;
+            font-size: 1.5rem;
+            opacity: .5;
+        }
+    }
+    .select_tip{
+        margin-bottom: 1rem;
+    }
+    .tips{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 50px;
+        gap: 15px;
+        margin-bottom: 2.5rem;
+        .tip_percentage:not(:last-child){
+            background-color: $Very-dark-cyan;
+            color: $White;
+            @extend .grid-items-center;
+            font-size: 1.375rem;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &.clicked{
+                background-color: $Strong-cyan;
+            }
+        }
+        .tip_percentage input{
+            font-size: 1.375rem;
+            padding: 0 1rem;
+        }
+    }
+    .number_of_people{
+        margin-bottom: .25rem;
+        position: relative;
+        &::after{
+            content: '';
+            width: 15px;
+            height: 15px;
+            background-image: url(images/icon-person.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 2.75rem;
+            left: 1rem;
+        }
+    }
+
+}
+.total_amount {
+    border-radius: 10px;
+    background-color: $Very-dark-cyan;
+    color: $White;
+    padding: 2.675rem 2.5rem;
+    display: grid;
+    align-content: space-between;
+
+    .tip_amount {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        .amount{
+            font-size: 2.875rem;
+            color: $Strong-cyan;
+            font-weight: 700;
+        }
+    }
+    p span{
+        display: block;
+        opacity: .5;
+    }
+    button{
+        width: 100%;
+        height: 50px;
+        background-color: $Strong-cyan;
+        color: $Very-dark-cyan;
+        border: none;
+        font-weight: 700;
+        font-size: 1.25rem;
+        cursor: pointer;
+        opacity: .5;
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+@media (max-width: 920px) {
+    .tip_card{
+        grid-template-columns: 1fr;
+        width: 375px;
+        padding: 1.5rem;
+        row-gap: 1.25rem;
+    }
+    .tip_input{
+        padding: .5rem;
+        .bill + input{
+            margin-bottom: 2rem;
+        }
+        .select_tip + .tips{
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 2rem;
+        }
+    }
+    .total_amount{
+        padding: 1.5rem;
+        .tip_amount{
+            margin-bottom: 0rem;
+            .amount{
+                font-size: 1.875rem;
+            }
+            p span{
+                font-size: .75rem;
+            }
+        }
+    }
+}

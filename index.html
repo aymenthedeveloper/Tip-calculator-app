@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Tip calculator app</title>
+</head>
+<body>
+  <main>
+    <div class="tip_card">
+      <div class="tip_input">
+        <label for="Bill" class="bill">Bill</label>
+        <input type="text" name="bill" id="bill" placeholder="0" maxlength="5">
+        <label class="select_tip">Select Tip %</label>
+        <div class="tips">
+          <div class="tip_percentage">5%</div>
+          <div class="tip_percentage">10%</div>
+          <div class="tip_percentage">15%</div>
+          <div class="tip_percentage">20%</div>
+          <div class="tip_percentage">25%</div>
+          <div class="tip_percentage">
+            <input type="text" name="custom_tip" id="custom_tip" placeholder="Custom" maxlength="3">
+          </div>
+        </div>
+        <label for="number_of_people" class="number_of_people">Number of People</label>
+        <input type="text" name="number_of_people" id="number_of_people" placeholder="0">
+      </div>
+      <div class="total_amount">
+        <div>
+          <div class="tip_amount">
+            <p>Tip Amount <span>/ person</span></p>
+            <div class="amount">$<span id="final_tip">0.00</span></div>
+          </div>
+          <div class="tip_amount">
+            <p>Total <span>/ person</span></p>
+            <div class="amount">$<span id="final_amount">0.00</span></div>
+          </div>
+        </div>
+        <button>RESET</button>
+      </div>
+    </div>
+  </main>
+  <script src="main.js">
+
+  </script>
+</body>
+</html>
