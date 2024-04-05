@@ -17,8 +17,8 @@ function calculateTip() {
     const people = parseInt(document.getElementById('number_of_people').value);
     const tip = getTip();
     if (bill && people && tip) {
-      final_tip.innerHTML = ((bill * tip / 100) / people).toFixed(2)
-      final_amount.innerHTML = ((bill * tip / 100) + bill / people).toFixed(2)
+      final_tip.innerHTML = ((bill * (tip / 100)) / people).toFixed(2)
+      final_amount.innerHTML = ((bill * tip / 100) / people + (bill / people)).toFixed(2)
     }
   } else {
     final_tip.innerHTML = '0.00'
